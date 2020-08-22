@@ -144,22 +144,22 @@
             align: 'center',
             dataIndex: 'ruleDescription',
             customRender: (t) => (<j-ellipsis value={t} length={48}/>)
-          },
-          {
-            title: '操作',
-            dataIndex: 'action',
-            align: 'center',
-            scopedSlots: { customRender: 'action' },
-          }
-        ],
+      },
         {
-          '/sys/checkRule/list',
+          title: '操作',
+          dataIndex: 'action',
+          align: 'center',
+          scopedSlots: { customRender: 'action' },
+        }
+    ],
+      url: {
+        list: '/sys/checkRule/list',
           delete: '/sys/checkRule/delete',
           deleteBatch: '/sys/checkRule/deleteBatch',
           exportXlsUrl: 'sys/checkRule/exportXls',
           importExcelUrl: 'sys/checkRule/importExcel',
-        },
-      }
+      },
+    }
     },
     computed: {
       importExcelUrl: function () {

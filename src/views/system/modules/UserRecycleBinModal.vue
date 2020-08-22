@@ -157,21 +157,21 @@
           content: (<div>
             <p>您确定要彻底删除这 {userIds.length} 个用户吗？</p>
             <p style="color:red;">注意：彻底删除后将无法恢复，请谨慎操作！</p>
-          </div>),
-          true,
+        </div>),
+        centered: true,
           onOk: () => {
-            var that = this;
-            deleteAction(that.url.deleteRecycleBin, {userIds: userIds.join(',')}).then((res) => {
-              if (res.success) {
-                this.loadData()
-                this.handleClearSelection()
-                this.$message.success(`彻底删除 ${userIds.length} 个用户成功！`)
-              } else {
-                that.$message.warning(res.message);
-              }
-            });
-          },
-        })
+          var that = this;
+          deleteAction(that.url.deleteRecycleBin, {userIds: userIds.join(',')}).then((res) => {
+            if (res.success) {
+              this.loadData()
+              this.handleClearSelection()
+              this.$message.success(`彻底删除 ${userIds.length} 个用户成功！`)
+            } else {
+              that.$message.warning(res.message);
+            }
+          });
+        },
+      })
       },
       handleRevertBatch() {
         this.handleRevert(this.selectedRowKeys)
